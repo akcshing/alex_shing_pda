@@ -11,9 +11,10 @@
 require_relative('card.rb')
 class CardGame
 
+#should all be class methods, no instanced objects
 
   def checkforAce(card) # should be check_for_ace if following convention
-    if card.value = 1
+    if card.value = 1   # shouuld be ==
       return true
     else
       return false
@@ -33,9 +34,9 @@ def self.cards_total(cards)
   total   # total = 0
   for card in cards
     total += card.value
-    return "You have a total of" + total  # space after of
+    return "You have a total of" + total  # return should be outside the for loop, and use string interpolation
   end
 end
 
-
+# missing class end
 ```
