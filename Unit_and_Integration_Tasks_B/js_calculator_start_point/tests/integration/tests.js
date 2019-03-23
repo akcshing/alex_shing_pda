@@ -48,7 +48,7 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.equal('-8')
   })
 
-  it("should be able to output decimal numbers", function(){
+  xit("should be able to output decimal numbers", function(){
     running_total = element(by.css('#running_total'))
     element(by.css('#number1')).click();
     element(by.css('#operator_divide')).click();
@@ -57,13 +57,47 @@ describe('calculator functionality', function() {
     expect(running_total.getAttribute('value')).to.eventually.be.within(0.333, 0.334)
   })
 
-  it("should be able to output very large numbers", function(){
+  xit("should be able to output very large numbers", function(){
     running_total = element(by.css('#running_total'))
-    element(by.css('#number1')).click();
-    element(by.css('#operator_subtract')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_multiply')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#number9')).click();
     element(by.css('#number9')).click();
     element(by.css('#operator_equals')).click();
-    expect(running_total.getAttribute('value')).to.eventually.equal('-8')
+    expect(running_total.getAttribute('value')).to.eventually.equal('9.99999997e+26')
+  })
+
+  it("should output Not a number if a number is divided by 0", function(){
+    element(by.css('#number9')).click();
+    element(by.css('#operator_divide')).click();
+    element(by.css('#number0')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('Not a number')
   })
 
 });
