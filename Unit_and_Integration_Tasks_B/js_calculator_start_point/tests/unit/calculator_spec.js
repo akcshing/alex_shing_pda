@@ -20,4 +20,15 @@ describe('calculator', function () {
     calculator.subtract(4)
     assert.equal(calculator.runningTotal, 3)
   })
+  it("can multiply 3 by 5 and get 15", function () {
+    calculator.previousTotal = 3
+    calculator.multiply(5)
+    assert.equal(calculator.runningTotal, 15)
+  })
+  it("can divide 21 by 3 and get 7", function () {
+    calculator.previousTotal = 21
+    calculator.divide(3)
+    assert.equal(calculator.runningTotal, 7)
+  })
+
 });
