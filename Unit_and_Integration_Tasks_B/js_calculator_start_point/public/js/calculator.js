@@ -40,6 +40,10 @@ Calculator.prototype = {
 
   operatorClick: function(operator) {
 
+    if (operator == "=" && this.previousOperator == "/" && this.runningTotal === 0) {
+      this.runningTotal = ""
+    }
+
     // if there was a previous operator recorded as having been clicked, perform
     // the operation for the previous operator
     if (this.previousTotal && this.previousOperator) {
@@ -59,6 +63,7 @@ Calculator.prototype = {
       }
     }
 
+
     // if the 'equals' button was clicked, clear the previous operator, otherwise
     // record what the previous operator was
     if (operator == '=') {
@@ -72,6 +77,7 @@ Calculator.prototype = {
     this.previousTotal = this.runningTotal;
     this.newTotal = true;
   },
+
 
   clearClick: function() {
     if (this.runningTotal == 0) {
