@@ -55,7 +55,15 @@ describe('calculator functionality', function() {
     element(by.css('#number3')).click();
     element(by.css('#operator_equals')).click();
     expect(running_total.getAttribute('value')).to.eventually.be.within(0.333, 0.334)
-    // expect(running_total.getAttribute('value')).to.eventually.be.closeTo(0.333, 0.001)
+  })
+
+  it("should be able to output very large numbers", function(){
+    running_total = element(by.css('#running_total'))
+    element(by.css('#number1')).click();
+    element(by.css('#operator_subtract')).click();
+    element(by.css('#number9')).click();
+    element(by.css('#operator_equals')).click();
+    expect(running_total.getAttribute('value')).to.eventually.equal('-8')
   })
 
 });
